@@ -33,3 +33,21 @@ function loadEntry(filename) {
       document.getElementById('content').innerHTML = '<p>Error cargando la entrada.</p>';
     });
 }
+
+function toggleDropdown(element) {
+  // Cierra otros dropdowns
+  document.querySelectorAll('.nav-item').forEach(item => {
+    if (item !== element) item.classList.remove('active');
+  });
+
+  // Alterna visibilidad del clicado
+  element.classList.toggle('active');
+}
+
+// Cierra todos los dropdowns si haces clic fuera
+document.addEventListener('click', function (e) {
+  const isInside = e.target.closest('.nav-item');
+  if (!isInside) {
+    document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+  }
+});

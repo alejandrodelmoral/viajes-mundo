@@ -21,7 +21,13 @@ body {
   cursor: pointer;
 }
 
+/* Hover en escritorio */
 .nav-item:hover .dropdown {
+  display: block;
+}
+
+/* Activación manual para móviles */
+.nav-item.active .dropdown {
   display: block;
 }
 
@@ -31,6 +37,7 @@ body {
   top: 100%;
   background-color: #444;
   min-width: 120px;
+  z-index: 999;
 }
 
 .dropdown a {
