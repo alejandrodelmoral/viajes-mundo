@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  z-index: 1000;
+  display: flex;
+  padding: 10px 20px;
+  transition: top 0.3s;
+}
+
+.nav-item {
+  position: relative;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.nav-item:hover .dropdown {
+  display: block;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  background-color: #444;
+  min-width: 120px;
+}
+
+.dropdown a {
+  display: block;
+  color: white;
+  padding: 8px 12px;
+  text-decoration: none;
+}
+
+.dropdown a:hover {
+  background-color: #666;
+}
+
+.content {
+  margin-top: 60px;
+  padding: 20px;
+}

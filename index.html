@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog de Viajes</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="navbar" id="navbar">
+    <div class="nav-item">
+        <a href="#" onclick="loadHome()" style="color: white; text-decoration: none;">Inicio</a>
+    </div>
+    <div class="nav-item">
+      2024
+      <div class="dropdown">
+        <a href="#" onclick="loadEntry('2024/2024_08_Paris.md')">París</a>
+        <a href="#" onclick="loadEntry('2024/2024_09_Alemania.md')">Alemania</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      2025
+      <div class="dropdown">
+        <a href="#" onclick="loadEntry('2025/2025_02_Londres.md')">Londres</a>
+        <a href="#" onclick="loadEntry('2025/2025_03_Venecia.md')">Venecia</a>
+        <a href="#" onclick="loadEntry('2025/2025_06_Turquia.md')">Turquía</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="content" id="content">
+    <h1>Bienvenido a mi blog de viajes</h1>
+    <p>Selecciona un destino en la barra superior para leer sobre esa aventura.</p>
+  </div>
+
+  <!-- Librería para parsear Markdown -->
+  <script src="lib/marked.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
