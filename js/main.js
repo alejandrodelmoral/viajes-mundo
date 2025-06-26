@@ -12,44 +12,29 @@
 //   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 // });
 
-const yearEntries = {
-  '2024': [
-    {
-      name: 'París, Francia',
-      image: 'assets/2024/paris.jpg',
-      date: 'Agosto 2024',
-      file: '2024/2024_08_Paris.md'
-    },
-    {
-      name: 'Alemania',
-      image: 'assets/2024/alemania.jpg',
-      date: 'Septiembre 2024',
-      file: '2024/2024_09_Alemania.md'
-    }
-  ],
-  '2025': [
-    {
-      name: 'Londres, Inglaterra',
-      image: 'assets/2025/londres.jpeg',
-      date: 'Febrero 2025',
-      file: '2025/2025_02_Londres.md'
-    },
-    {
-      name: 'Venecia, Italia',
-      image: 'assets/2025/venecia.jpeg',
-      date: 'Marzo 2025',
-      file: '2025/2025_03_Venecia.md'
-    },
-    {
-      name: 'Turquía',
-      image: 'assets/2025/turquia.jpg',
-      date: 'Junio 2025',
-      file: '2025/2025_06_Turquia.md'
-    }
-  ]
-};
+let yearEntries = {};
+
+function loadYearEntries() {
+  return fetch('js/config.json')
+    .then(response => {
+      if (!response.ok) throw new Error('No se pudo cargar config.json');
+      return response.json();
+    })
+    .then(data => {
+      yearEntries = data;
+    })
+    .catch(error => {
+      console.error('Error cargando yearEntries:', error);
+      yearEntries = {};
+    });
+}
 
 function loadHome() {
+  if (!yearEntries['2024'] || !yearEntries['2025']) {
+    document.getElementById('content').innerHTML = '<p>Error: entradas no cargadas.</p>';
+    return;
+  }
+
   const allEntries = [...yearEntries['2024'], ...yearEntries['2025']];
 
   const cards = allEntries.map(entry => `
@@ -66,7 +51,7 @@ function loadHome() {
     <p>Selecciona un destino en la barra superior para leer sobre esa aventura.</p>
     <div class="scroll-container">
       <div class="card-row" id="card-row">${cards}${cards}</div>
-      <!-- Duplicamos el contenido para crear efecto cinta infinita -->
+      <!-- Duplicamos el contenido para efecto cinta infinita -->
     </div>
   `;
 
@@ -75,12 +60,10 @@ function loadHome() {
   const scrollContainer = document.querySelector('.scroll-container');
   const cardRow = document.getElementById('card-row');
   if (scrollContainer && cardRow) {
-    let scrollSpeed = 0.7; // px por frame, ajusta para más rápido o lento
+    let scrollSpeed = 0.7; // px por frame
 
     function autoScroll() {
       scrollContainer.scrollLeft += scrollSpeed;
-
-      // Cuando scrollLeft llegue a la mitad, vuelve a 0
       if (scrollContainer.scrollLeft >= cardRow.scrollWidth / 2) {
         scrollContainer.scrollLeft = 0;
       }
@@ -150,5 +133,9 @@ function loadYear(year) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  loadHome();
+  loadYearEntries()
+    .then(() => loadHome())
+    .catch(() => {
+      document.getElementById('content').innerHTML = '<p>Error cargando configuración.</p>';
+    });
 });

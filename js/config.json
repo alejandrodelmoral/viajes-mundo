@@ -1,0 +1,36 @@
+{
+  "2024": [
+    {
+      "name": "París, Francia",
+      "image": "assets/2024/paris.jpg",
+      "date": "Agosto 2024",
+      "file": "2024/2024_08_Paris.md"
+    },
+    {
+      "name": "Alemania",
+      "image": "assets/2024/alemania.jpg",
+      "date": "Septiembre 2024",
+      "file": "2024/2024_09_Alemania.md"
+    }
+  ],
+  "2025": [
+    {
+      "name": "Londres, Inglaterra",
+      "image": "assets/2025/londres.jpeg",
+      "date": "Febrero 2025",
+      "file": "2025/2025_02_Londres.md"
+    },
+    {
+      "name": "Venecia, Italia",
+      "image": "assets/2025/venecia.jpeg",
+      "date": "Marzo 2025",
+      "file": "2025/2025_03_Venecia.md"
+    },
+    {
+      "name": "Turquía",
+      "image": "assets/2025/turquia.jpg",
+      "date": "Junio 2025",
+      "file": "2025/2025_06_Turquia.md"
+    }
+  ]
+}
