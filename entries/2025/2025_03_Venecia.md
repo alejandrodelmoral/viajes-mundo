@@ -1,6 +1,8 @@
 # 🌍 Viaje a Venecia 2025 <!-- omit in toc -->
 
-> 📅 **Fechas del viaje:** *27 - 30 de marzo*
+> 📅 **Fechas**
+> 
+> 27 - 30 de marzo
 
 ![Venecia](./resources/Venecia.jpg)
 

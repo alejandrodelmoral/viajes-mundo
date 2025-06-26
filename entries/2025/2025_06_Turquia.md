@@ -1,6 +1,7 @@
 # ✈️ Itinerario de Viaje a Turquía – Junio 2025 <!-- omit in toc -->
 
 > **Fechas del viaje:** Del viernes 13 al martes 24 de junio de 2025
+> 
 > **Duración:** 12 días / 11 noches
 
 ---
@@ -281,7 +282,6 @@ Ya que el desayuno está cubierto, calculamos solo comidas y cenas:
 
 ---
 
-
 ### 📍 Éfeso/Selçuk (18–19 junio)
 
 > **Resumen**
@@ -294,7 +294,6 @@ Ya que el desayuno está cubierto, calculamos solo comidas y cenas:
 
 ---
 
-
 ### 📍 Pamukkale (19–20 junio)
 
 > **Resumen**
@@ -306,7 +305,6 @@ Ya que el desayuno está cubierto, calculamos solo comidas y cenas:
 > - Piscina de Cleopatra (baño opcional en aguas termales)
 
 ---
-
 
 ### 📍 Fethiye (20–22 junio)
 

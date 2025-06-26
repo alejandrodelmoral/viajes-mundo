@@ -1,6 +1,7 @@
 # Viaje Londres 2025 <!-- omit in toc -->
 
-> :information_source: **Fechas**
+> 📅 **Fechas**
+> 
 > 13 - 17 de febrero
 
 ![image](./resources/London.png)

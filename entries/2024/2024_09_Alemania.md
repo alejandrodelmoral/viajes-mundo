@@ -1,6 +1,7 @@
 # Viaje Selva Negra 2024 <!-- omit in toc -->
 
-> :information_source: **Fechas**
+> 📅 **Fechas**
+> 
 > 7 - 15 de septiembre
 
 ## Tabla de contenidos <!-- omit in toc -->

@@ -44,7 +44,126 @@ body {
   background-color: #666;
 }
 
+/* Contenedor del contenido */
 .content {
   margin-top: 60px;
   padding: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
+
+/* Títulos */
+.content h1 {
+  font-size: 2em;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.3em;
+  margin-top: 1em;
+}
+
+.content h2 {
+  font-size: 1.5em;
+  margin-top: 1.5em;
+}
+
+/* Párrafos */
+.content p {
+  font-size: 1rem;
+  margin: 1em 0;
+}
+
+/* Listas */
+.content ul {
+  padding-left: 20px;
+}
+
+.content li {
+  margin: 0.5em 0;
+}
+
+/* Código */
+.content code {
+  background-color: #f4f4f4;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* Bloques de código */
+.content pre {
+  background-color: #f0f0f0;
+  padding: 10px;
+  overflow-x: auto;
+  border-radius: 5px;
+}
+
+/* Enlaces */
+.content a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.content a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo general para tablas */
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.95rem;
+  background-color: white;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Encabezados de tabla */
+.content th {
+  background-color: #f5f5f5;
+  text-align: left;
+  padding: 10px;
+  border-bottom: 2px solid #ccc;
+  font-weight: bold;
+}
+
+/* Celdas de tabla */
+.content td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Alternancia de filas */
+.content tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Responsive: hacer scroll horizontal si la tabla es muy ancha */
+.content table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Estilo para blockquotes */
+.content blockquote {
+  border-left: 4px solid #0077cc;
+  background-color: #f9f9f9;
+  padding: 10px 20px;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: #555;
+  position: relative;
+}
+
+/* Ajuste para móviles si quieres */
+@media (max-width: 600px) {
+  .content blockquote {
+    padding: 10px 15px;
+  }
+}
+
