@@ -1,16 +1,16 @@
-let lastScrollTop = 0;
-const navbar = document.getElementById('navbar');
+// let lastScrollTop = 0;
+// const navbar = document.getElementById('navbar');
 
-// Mostrar/ocultar barra según scroll
-window.addEventListener('scroll', () => {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  if (scrollTop > lastScrollTop) {
-    navbar.style.top = '-60px';
-  } else {
-    navbar.style.top = '0';
-  }
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-});
+// // Mostrar/ocultar barra según scroll
+// window.addEventListener('scroll', () => {
+//   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+//   if (scrollTop > lastScrollTop) {
+//     navbar.style.top = '-60px';
+//   } else {
+//     navbar.style.top = '0';
+//   }
+//   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+// });
 
 function loadHome() {
   document.getElementById('content').innerHTML = `
