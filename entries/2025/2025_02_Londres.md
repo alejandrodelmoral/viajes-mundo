@@ -4,9 +4,9 @@
 > 
 > 13 - 17 de febrero
 
-![image](./resources/London.png)
-
 [Guía general para Londres en 3 días (Guía)](https://www.viviendodeviaje.com/que-ver-en-londres-en-3-dias/)
+
+---
 
 ## Tabla de contenidos <!-- omit in toc -->
 

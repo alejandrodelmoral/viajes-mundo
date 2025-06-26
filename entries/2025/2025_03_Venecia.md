@@ -4,8 +4,6 @@
 > 
 > 27 - 30 de marzo
 
-![Venecia](./resources/Venecia.jpg)
-
 ---
 
 ## 📌 Tabla de Contenidos <!-- omit in toc -->
