@@ -2,6 +2,8 @@
 
 Este es un blog estático para publicar artículos de viajes usando archivos Markdown.
 
+El blog se encuentra clicando [aquí](https://alejandrodelmoral.github.io/viajes-mundo/).
+
 ---
 
 ## Cómo subir nuevos artículos

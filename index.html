@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+  />
 </head>
 <body>
   <div class="navbar" id="navbar">
@@ -19,6 +24,9 @@
     </div>
     <div class="nav-item">
       <a href="javascript:void(0)" onclick="loadYear('2025')">2025</a>
+    </div>
+    <div class="nav-item">
+      <a href="javascript:void(0)" onclick="openMap()">Mapa</a>
     </div>
   </div>
 
@@ -47,6 +55,7 @@
   </footer>
 
   <script src="lib/marked.min.js"></script> <!-- Librería para parsear Markdown -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script> <!-- Leaflet JS -->
   <script src="js/main.js"></script>
 </body>
 </html>

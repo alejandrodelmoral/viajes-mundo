@@ -330,3 +330,12 @@ body {
   color: var(--color-accent-dark);
   outline: none;
 }
+
+.content .map-container {
+  position: relative;
+  height: 500px;
+  margin: 2em 0;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
