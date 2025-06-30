@@ -112,9 +112,10 @@ function openMap() {
 function loadMap(visitedCountries) {
   document.getElementById('content').innerHTML = `
     <h1>Sitios donde hemos estado</h1>
-    <div class="map-container" style="height: 500px; border-radius: 16px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+    <div class="map-container" style="height: 500px; border-radius: 16px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); margin-bottom: 1.5em;">
       <div id="map" style="height: 100%; width: 100%; border-radius: 16px;"></div>
     </div>
+    <div id="progress-bars" class="progress-wrapper"></div>
   `;
 
   setTimeout(() => {
@@ -135,7 +136,7 @@ function loadMap(visitedCountries) {
     }).addTo(map);
 
     function style(feature) {
-      const iso = feature.id;
+      const iso = feature.properties.iso_a3;
       const isVisited = visitedCountries.includes(iso);
       return {
         fillColor: isVisited ? '#00aaff' : '#cccccc',
@@ -146,14 +147,140 @@ function loadMap(visitedCountries) {
       };
     }
 
-    fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
+    fetch('js/countries.json')
       .then(res => res.json())
       .then(geojson => {
         L.geoJSON(geojson, { style }).addTo(map);
+
+        const regionMap = {
+          'Africa': 'Africa',
+          'Americas': 'Americas',
+          'Europe': 'Europe',
+          'Asia': 'Asia',
+          'Oceania': 'Oceania',
+          'Antarctica': 'Antarctica'
+        };
+
+        const regionStats = {
+          'Africa': { visited: 0, total: 0 },
+          'Americas': { visited: 0, total: 0 },
+          'Asia': { visited: 0, total: 0 },
+          'Europe': { visited: 0, total: 0 },
+          'Oceania': { visited: 0, total: 0 },
+          'Antarctica': { visited: 0, total: 0 }
+        };
+
+        const regionCountries = {
+          'Africa': [],
+          'Americas': [],
+          'Asia': [],
+          'Europe': [],
+          'Oceania': []
+        };
+
+        const validIsoSet = new Set();
+
+        geojson.features.forEach(feature => {
+          const iso = feature.properties.iso_a3;
+          const regionRaw = feature.properties.region_un;
+          const continent = regionMap[regionRaw];
+
+          if (!continent) return;
+          if (validIsoSet.has(iso)) return;
+
+          validIsoSet.add(iso);
+          regionStats[continent].total++;
+          if (visitedCountries.includes(iso)) {
+            regionStats[continent].visited++;
+            if (regionCountries[continent]) {
+              regionCountries[continent].push(feature.properties.name);
+            }
+          }
+        });
+
+        const globalTotal = 195;
+        const globalVisited = visitedCountries.length;
+
+        const displayNames = {
+          'Africa': 'África',
+          'Americas': 'América',
+          'Asia': 'Asia',
+          'Europe': 'Europa',
+          'Oceania': 'Oceanía'
+        };
+
+        const container = document.getElementById('progress-bars');
+
+        const makeBar = (label, visited, total, countryList = [], regionId = null, collapsible = false) => {
+          const percent = total ? Math.round((visited / total) * 100) : 0;
+          const countriesHtml = countryList.map(c => `<li>${c}</li>`).join('');
+          const listHtml = collapsible ? `
+            <ul id="${regionId}" style="display: none; margin: 0.5em 0 0 1em; padding-left: 1em; list-style: disc;">
+              ${countriesHtml}
+            </ul>
+          ` : '';
+
+          const titleHtml = collapsible
+            ? `<strong style="cursor: pointer;" onclick="toggleCountryList('${regionId}')">
+                <span id="${regionId}-arrow">▼</span> ${label}
+              </strong>`
+            : `<strong>${label}</strong>`;
+
+          return `
+            <div style="margin-bottom: 0.5em;">
+              ${titleHtml}
+              <div class="progress-bar" style="
+                background-color: #eee;
+                border-radius: 12px;
+                overflow: hidden;
+                height: 24px;
+                position: relative;
+              ">
+                <div class="progress-bar-fill" style="
+                  background-color: #4caf50;
+                  height: 100%;
+                  width: ${percent}%;
+                  transition: width 0.6s ease;
+                "></div>
+                <div style="
+                  position: absolute;
+                  top: 0; left: 0; right: 0; bottom: 0;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: black;
+                  font-weight: bold;
+                  user-select: none;
+                  pointer-events: none;
+                ">
+                  ${visited}/${total} (${percent}%)
+                </div>
+              </div>
+              ${listHtml}
+            </div>
+          `;
+        };
+
+        container.innerHTML =
+          makeBar('🌍 Global', globalVisited, globalTotal) +
+          Object.entries(regionStats)
+            .filter(([region, stats]) => region !== 'Antarctica' && stats.total > 0)
+            .map(([region, { visited, total }]) =>
+              makeBar(`🌎 ${displayNames[region]}`, visited, total, regionCountries[region], `region-${region.toLowerCase()}`, true)
+            ).join('');
+
+        window.toggleCountryList = function(regionId) {
+          const list = document.getElementById(regionId);
+          const arrow = document.getElementById(`${regionId}-arrow`);
+          if (list) {
+            const isVisible = list.style.display === 'block';
+            list.style.display = isVisible ? 'none' : 'block';
+            if (arrow) arrow.textContent = isVisible ? '▼' : '▲';
+          }
+        };
       })
       .catch(err => console.error('Error cargando GeoJSON:', err));
 
-    // Control personalizado para resetear zoom y posición
     const ResetControl = L.Control.extend({
       options: { position: 'topleft' },
 
@@ -169,18 +296,15 @@ function loadMap(visitedCountries) {
         container.style.fontSize = '24px';
         container.title = 'Resetear zoom y posición';
         container.innerHTML = '&#8634;';
-
-        container.onclick = function(){
+        container.onclick = function() {
           map.setView(initialView, initialZoom);
         };
-
         L.DomEvent.disableClickPropagation(container);
         return container;
       }
     });
 
     map.addControl(new ResetControl());
-
   }, 100);
 }
 
