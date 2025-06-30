@@ -2,7 +2,7 @@
   "2022": [
     {
       "name": "Interrail",
-      "image": "",
+      "image": "assets/2022/interrail.jpg",
       "date": "Agosto - Septiembre 2022",
       "file": ""
     }
@@ -10,7 +10,7 @@
   "2024": [
     {
       "name": "Andorra",
-      "image": "",
+      "image": "assets/2024/andorra.jpg",
       "date": "Febrero 2024",
       "file": ""
     },
@@ -22,13 +22,13 @@
     },
     {
       "name": "Portugal I",
-      "image": "",
+      "image": "assets/2024/portugal_I.jpg",
       "date": "Agosto 2024",
       "file": ""
     },
     {
       "name": "Portugal II",
-      "image": "",
+      "image": "assets/2024/portugal_II.jpeg",
       "date": "Agosto 2024",
       "file": ""
     },
