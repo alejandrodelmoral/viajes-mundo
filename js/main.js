@@ -21,7 +21,7 @@ function loadHome() {
     return;
   }
 
-  const allEntries = [...yearEntries['2024'], ...yearEntries['2025']];
+  const allEntries = [...yearEntries['2022'], ...yearEntries['2024'], ...yearEntries['2025']];
 
   const cards = allEntries.map(entry => `
     <div class="card" onclick="loadEntry('${entry.file}')">
@@ -266,7 +266,7 @@ function loadMap(visitedCountries) {
           Object.entries(regionStats)
             .filter(([region, stats]) => region !== 'Antarctica' && stats.total > 0)
             .map(([region, { visited, total }]) =>
-              makeBar(`🌎 ${displayNames[region]}`, visited, total, regionCountries[region], `region-${region.toLowerCase()}`, true)
+              makeBar(`${displayNames[region]}`, visited, total, regionCountries[region], `region-${region.toLowerCase()}`, true)
             ).join('');
 
         window.toggleCountryList = function(regionId) {
