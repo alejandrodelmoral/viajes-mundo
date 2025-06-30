@@ -33,6 +33,8 @@ El blog se encuentra clicando [aquí](https://alejandrodelmoral.github.io/viajes
 
     - La web cargará automáticamente la nueva entrada y aparecerá en el blog.
 
+> Si quieres añadir entradas de años que aún no están disponibles, contacta con [@alejandrodelmoral](https://github.com/alejandrodelmoral).
+
 ---
 
 ## Estructura del proyecto
