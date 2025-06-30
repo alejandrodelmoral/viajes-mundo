@@ -106,6 +106,7 @@ function openMap() {
     document.getElementById('content').innerHTML = '<p>Error: países visitados no definidos.</p>';
     return;
   }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   loadMap(yearEntries.visitedCountries);
 }
 
