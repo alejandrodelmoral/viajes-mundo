@@ -4,7 +4,7 @@
       "name": "Interrail",
       "image": "assets/2022/interrail.jpg",
       "date": "Agosto - Septiembre 2022",
-      "file": ""
+      "file": "2022/2022_08_Interrail.md"
     }
   ],
   "2024": [
@@ -12,7 +12,7 @@
       "name": "Andorra",
       "image": "assets/2024/andorra.jpg",
       "date": "Febrero 2024",
-      "file": ""
+      "file": "2024/2024_02_Andorra.md"
     },
     {
       "name": "París, Francia",
@@ -24,13 +24,13 @@
       "name": "Portugal I",
       "image": "assets/2024/portugal_I.jpg",
       "date": "Agosto 2024",
-      "file": ""
+      "file": "2024/2024_08_Portugal_I.md"
     },
     {
       "name": "Portugal II",
       "image": "assets/2024/portugal_II.jpeg",
       "date": "Agosto 2024",
-      "file": ""
+      "file": "2024/2024_08_Portugal_II.md"
     },
     {
       "name": "Alemania",

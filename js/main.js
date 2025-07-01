@@ -213,7 +213,8 @@ function loadMap(visitedCountries) {
         const container = document.getElementById('progress-bars');
 
         const makeBar = (label, visited, total, countryList = [], regionId = null, collapsible = false) => {
-          const percent = total ? Math.round((visited / total) * 100) : 0;
+          //const percent = total ? Math.round((visited / total) * 100) : 0;
+          const percent = total ? ((visited / total) * 100).toFixed(1) : '0.0';
           const countriesHtml = countryList.map(c => `<li>${c}</li>`).join('');
           const listHtml = collapsible ? `
             <ul id="${regionId}" style="display: none; margin: 0.5em 0 0 1em; padding-left: 1em; list-style: disc;">

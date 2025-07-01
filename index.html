@@ -4,35 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blog de Viajes</title>
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
   <!-- Leaflet CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-  />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
 </head>
 <body>
+  <!-- Barra de navegación -->
   <div class="navbar" id="navbar">
-    <div class="nav-item">
-        <a href="javascript:void(0)" onclick="loadHome()">Inicio</a>
-    </div>
-    <div class="nav-item">
-      <a href="javascript:void(0)" onclick="loadYear('2022')">2022</a>
-    </div>
-    <div class="nav-item">
-      <a href="javascript:void(0)" onclick="loadYear('2024')">2024</a>
-    </div>
-    <div class="nav-item">
-      <a href="javascript:void(0)" onclick="loadYear('2025')">2025</a>
-    </div>
-    <div class="nav-item">
-      <a href="javascript:void(0)" onclick="openMap()">Mapa</a>
-    </div>
+    <div class="nav-item"><a href="javascript:void(0)" onclick="loadHome()">Inicio</a></div>
+    <div class="nav-item"><a href="javascript:void(0)" onclick="loadYear('2022')">2022</a></div>
+    <div class="nav-item"><a href="javascript:void(0)" onclick="loadYear('2024')">2024</a></div>
+    <div class="nav-item"><a href="javascript:void(0)" onclick="loadYear('2025')">2025</a></div>
+    <div class="nav-item"><a href="javascript:void(0)" onclick="openMap()">Mapa</a></div>
   </div>
 
+  <!-- Contenido principal -->
   <div class="content" id="content">
     <h1>Bienvenido a nuestro blog de viajes</h1>
     <blockquote>
@@ -41,6 +37,7 @@
     <p>Explora nuestros relatos y déjate inspirar para tu próxima aventura.</p>
   </div>
 
+  <!-- Pie de página -->
   <footer class="footer">
     <p>
       &copy; 2025 Irene &amp; Ale
@@ -57,8 +54,11 @@
     </p>
   </footer>
 
-  <script src="lib/marked.min.js"></script> <!-- Librería para parsear Markdown -->
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script> <!-- Leaflet JS -->
+  <!-- JS externo -->
+  <script src="lib/marked.min.js"></script> <!-- Markdown parser -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script> <!-- Leaflet -->
+
+  <!-- JS personalizado -->
   <script src="js/main.js"></script>
 </body>
 </html>
